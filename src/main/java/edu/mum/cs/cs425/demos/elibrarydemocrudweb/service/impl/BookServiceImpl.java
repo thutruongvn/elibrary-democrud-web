@@ -54,7 +54,7 @@ public class BookServiceImpl implements BookService {
         List<Book> resultList = repository.findAll().stream()
                 .filter(book ->  book.getTitle().toLowerCase().contains(bookTitle.toLowerCase()))
                 .collect(Collectors.toList());
-        return new PageImpl<>(resultList , PageRequest.of(pageNo, 3, Sort.by("title")), resultList.size());
+        return new PageImpl<>(resultList , PageRequest.of(pageNo, 10, Sort.by("title")), resultList.size());
     }
 
 

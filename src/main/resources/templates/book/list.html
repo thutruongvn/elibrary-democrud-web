@@ -45,7 +45,7 @@
         <form  th:action="@{/elibrary/book/list}"  method="get">
         <div>
             <span style="float:left;">
-                <input type="text" id="title" name="title" />
+                <input type="text" id="title" name="title" th:value="${title}"/>
                 <input type="submit" value="Search" class="btn btn-outline-primary btn-lg"/>
             </span>
         </div>

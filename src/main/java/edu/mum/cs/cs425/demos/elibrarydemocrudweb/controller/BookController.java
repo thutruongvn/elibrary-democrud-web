@@ -27,6 +27,8 @@ public class BookController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("currentPageNo", pageno);
         if (title != null && !title.isEmpty()) {
+            modelAndView.addObject("title", title);
+//            modelAndView.addObject("currentPageNo", 0);
             modelAndView.addObject("books", bookService.searchBookByTitle(title, pageno));
         } else {
             modelAndView.addObject("books", bookService.getAllBooksPaged(pageno));
