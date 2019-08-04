@@ -42,6 +42,14 @@
             </span>
         </div>
 
+        <form  th:action="@{/elibrary/book/list}"  method="get">
+        <div>
+            <span style="float:left;">
+                <input type="text" id="title" name="title" />
+                <input type="submit" value="Search" class="btn btn-outline-primary btn-lg"/>
+            </span>
+        </div>
+
         <p>&nbsp;</p>
         <div style="font-size: 1em">
             <table class="table table-striped">
@@ -91,6 +99,7 @@
             </div>
 
         </div>
+        </form>
     </div>
 
 

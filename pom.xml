@@ -12,6 +12,7 @@
     <artifactId>elibrary-democrud-web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>elibrary-democrud-web</name>
+    <packaging>war</packaging>
     <description>Demo project for Spring Boot show-casing basic CRUD operations</description>
 
     <properties>
@@ -48,6 +49,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <build>

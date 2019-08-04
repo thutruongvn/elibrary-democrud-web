@@ -22,16 +22,21 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @GetMapping(value = {"/elibrary/book/list"})
-    public ModelAndView listBooks(@RequestParam(defaultValue = "0") int pageno) {
+    @GetMapping(value = {"elibrary/book/list","/elibrary/book/list"})
+    public ModelAndView listBooks(@RequestParam(defaultValue = "0") int pageno, @RequestParam (value = "title", required = false) String title) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("books", bookService.getAllBooksPaged(pageno));
         modelAndView.addObject("currentPageNo", pageno);
+        if (title != null && !title.isEmpty()) {
+            modelAndView.addObject("books", bookService.searchBookByTitle(title, pageno));
+        } else {
+            modelAndView.addObject("books", bookService.getAllBooksPaged(pageno));
+        }
+//        model.addAttribute("search", studentService.listStudentsBySurname(surname));
         modelAndView.setViewName("book/list");
         return modelAndView;
     }
 
-    @GetMapping(value = {"/elibrary/book/new"})
+    @GetMapping(value = {"elibrary/book/new", "/elibrary/book/new"})
     public String displayNewBookForm(Model model) {
         model.addAttribute("book", new Book());
         return "book/new";
